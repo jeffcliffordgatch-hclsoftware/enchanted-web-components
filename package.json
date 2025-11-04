@@ -1,0 +1,90 @@
+{
+  "name": "@hcl-software/enchanted-web-components",
+  "description": "UI Library providing Lit web components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Hanjo Hagemeier <hanjo.hagemeier@hcl.com>",
+  "license": "Apache-2.0",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "homepage": "https://github.com/HCL-TECH-SOFTWARE/enchanted-web-components#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HCL-TECH-SOFTWARE/enchanted-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HCL-TECH-SOFTWARE/enchanted-web-components/issues"
+  },
+  "keywords": [
+    "web componenets",
+    "enchanted",
+    "ts"
+  ],
+  "contributors": [
+    "Angelo rick Asoy <angelorick.asoy@hcl.com>",
+    "Ruby ann Matias <rubyann.matias@hcl.com>",
+    "Felix Müller <felix.muller@hcl.com>",
+    "Mridul Shrivastava <mridul.shrivastava@hcl.com>"
+  ],
+  "scripts": {
+    "build-clean": "rm -rf ./dist",
+    "build-final": "cp -r enchanted.css ./dist/ && cp -r src/styles ./dist/ && cp -r src/static/assets/*.svg ./dist/static/assets && cp -r src/static/assets/*.jpg ./dist/static/assets && cp -r src/static/assets/SearchIconsv2 ./dist/static/assets",
+    "build": "tsc",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix",
+    "test-unit": "wdio run ./wdio.unit.conf.ts",
+    "test-snapshot": "wdio run ./wdio.snapshot.conf.ts",
+    "update-snapshot-baseline": "wdio run ./wdio.snapshot.conf.ts --update-visual-baseline",
+    "compile-enchanted-css": "rm -f ./enchanted.css && sass --no-source-map ./src/styles/enchanted/enchanted.scss:enchanted.css",
+    "watch-enchanted-css": "rm -f ./enchanted.css && sass --watch --no-source-map ./src/styles/enchanted/enchanted.scss:enchanted.css",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@enchanted-prod/logger": "^2.0.2",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@lit/context": "^1.1.2",
+    "@lit/localize": "^0.12.1",
+    "@storybook/web-components-vite": "^9.1.16",
+    "@testing-library/webdriverio": "3.2.1",
+    "@types/lodash": "^4.17.5",
+    "@types/node": "^22.15.29",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "@wdio/browser-runner": "^9.20.0",
+    "@wdio/cli": "^9.20.0",
+    "@wdio/junit-reporter": "^9.20.0",
+    "@wdio/mocha-framework": "^9.20.0",
+    "@wdio/spec-reporter": "^9.20.0",
+    "@wdio/visual-service": "^9.0.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-lit": "^1.14.0",
+    "eslint-plugin-storybook": "^9.1.16",
+    "eslint-plugin-wc": "^2.1.0",
+    "eslint-plugin-why": "^1.2.0",
+    "fetch-mock": "^11.1.5",
+    "lit": "^3.3.0",
+    "lodash": "^4.17.21",
+    "p-iteration": "^1.1.8",
+    "picomatch": "^4.0.3",
+    "sass": "^1.93.2",
+    "storybook": "^9.1.16",
+    "typescript": "~5.8.3",
+    "uuid": "^11.0.3",
+    "wdio-json-html-reporter": "^1.5.14"
+  },
+  "dependencies": {
+    "@hcl-software/enchanted-icons-web-component": "github:nhickogarachicohcl/enchanted-icons-web-component",
+    "dayjs": "^1.11.13"
+  },
+  "engines": {
+    "node": ">=20.X"
+  },
+  "overrides": {
+    "glob": "^10.2.2",
+    "vite-plugin-istanbul": "^7.2.0"
+  }
+}

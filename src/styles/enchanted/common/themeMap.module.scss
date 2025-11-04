@@ -1,0 +1,383 @@
+@use "sass:map";
+/*
+ ********************************************************************
+ * Licensed Materials - Property of HCL                             *
+ *                                                                  *
+ * Copyright HCL Technologies Ltd. 2025. All Rights Reserved.       *
+ *                                                                  *
+ * Note to US Government Users Restricted Rights:                   *
+ *                                                                  *
+ * Use, duplication or disclosure restricted by GSA ADP Schedule    *
+ ********************************************************************
+ */
+
+$enchantedPalette: (
+  noShadow: 'none',
+  shadows1: 0px 4px 10px 0px rgba(0, 0, 0, 0.12),
+  shadows2: '0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
+  shadows4: '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+  shadows6: '0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)',
+  shadows16: '0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)',
+  shadows24: '0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12)',
+
+  BLACK100P: #000000,
+  BLACK87P: rgba(0, 0, 0, .87),
+  BLACK70P: rgba(0, 0, 0, .70),
+  BLACK60P: rgba(0, 0, 0, .60),
+  BLACK55P: rgba(0, 0, 0, .55),
+  BLACK43P: rgba(0, 0, 0, .43),
+  BLACK38P: rgba(0, 0, 0, .38),
+  BLACK32P: rgba(0, 0, 0, .32),
+  BLACK20P: rgba(0, 0, 0, .20),
+  BLACK15P: rgba(0, 0, 0, .15),
+  BLACK12P: rgba(0, 0, 0, .12),
+  BLACK8P: rgba(0, 0, 0, .08),
+  BLACK7P: rgba(0, 0, 0, .07),
+
+  BLUE100: #D9F9FF,
+  BLUE200: #AFEBF9,
+  BLUE300: #71D9F3,
+  BLUE400: #2ABDEA,
+  BLUE500: #14A1DE,
+  BLUE600: #0780C7,
+  BLUE700: #0066B0,
+  BLUE800: #01539B,
+  BLUE900: #06396D,
+  BLUE1000: #092B51,
+
+  CG100: #F5F5FA,
+  CG150: #E4E4F0,
+  CG200: #D3D4E5,
+  CG300: #C8CADD,
+  CG400: #A8ACBD,
+  CG500: #8C919F,
+  CG600: #717782,
+  CG700: #4A4F56,
+  CG800: #3F444A,
+  CG900: #33393D,
+  CG1000: #1D2123,
+  CG1000_80: rgba(29, 33, 35, .8),
+  CG1100: #12191F,
+
+  GREEN100: #E4FDED,
+  GREEN200: #92F7BA,
+  GREEN300: #41E287,
+  GREEN400: #15D36E,
+  GREEN500: #05BE62,
+  GREEN600: #029C54,
+  GREEN700: #007744,
+  GREEN800: #04633D,
+  GREEN900: #054D33,
+  GREEN1000: #07432F,
+
+  HCLSOFTWAREBLUE01: #000032,
+  HCLSOFTWAREBLUE02: #00005A,
+  HCLSOFTWAREBLUE03: #000078,
+  HCLSOFTWAREBLUE04: #0000AA,
+  HCLSOFTWAREBLUE05: #001EC8,
+  HCLSOFTWAREBLUE06: #0550DC,
+  HCLSOFTWAREBLUE07: #0550DC,
+  HCLSOFTWAREBLUE07_20: rgba(5, 80, 220, .20),
+  HCLSOFTWAREBLUE07_12: rgba(5, 80, 220, .12),
+  HCLSOFTWAREBLUE07_8: rgba(5, 80, 220, .08),
+  HCLSOFTWAREBLUE08: #0F5FDC,
+  HCLSOFTWAREBLUE09: #B3D9F8,
+  HCLSOFTWAREBLUE09_20: rgba(179, 217, 248, .20),
+  HCLSOFTWAREBLUE09_12: rgba(179, 217, 248, .12),
+  HCLSOFTWAREBLUE09_8: rgba(179, 217, 248, .08),
+
+  INDIGO100: #EDF5FF,
+  INDIGO200: #C8DFFF,
+  INDIGO300: #A9C7FC,
+  INDIGO400: #789DF4,
+  INDIGO500: #5C6FCB,
+  INDIGO600: #4C5AB7,
+  INDIGO700: #4D4DB9,
+  INDIGO800: #44339F,
+  INDIGO900: #362284,
+  INDIGO1000: #2A1A6A,
+
+  LIME100: #F9FDDE,
+  LIME200: #F1F49B,
+  LIME300: #E0E86A,
+  LIME400: #C7D540,
+  LIME500: #A4BB0B,
+  LIME600: #8BA702,
+  LIME700: #667F00,
+  LIME800: #506901,
+  LIME900: #3A4D04,
+  LIME1000: #2E4005,
+
+  NG100: #F6F6F6,
+  NG150: #E5E5E5,
+  NG200: #D6D6D6,
+  NG300: #CBCBCB,
+  NG400: #ADADAD,
+  NG500: #919191,
+  NG600: #767676,
+  NG700: #4E4E4E,
+  NG800: #404040,
+  NG900: #383838,
+  NG1000: #1E1E1E,
+  NG1000_80: rgba(30, 30, 30, .8),
+  NG1100: #121212,
+
+  ORANGE100: #FFF6E2,
+  ORANGE200: #FFE1A6,
+  ORANGE300: #FFC766,
+  ORANGE400: #FFAF38,
+  ORANGE500: #FF8A00,
+  ORANGE600: #E26A00,
+  ORANGE700: #C95000,
+  ORANGE800: #AE3D04,
+  ORANGE900: #882E07,
+  ORANGE1000: #691E08,
+
+  PINK100: #FFECFC,
+  PINK200: #FFCBF6,
+  PINK300: #FFADEF,
+  PINK400: #FF7DE5,
+  PINK500: #E753BF,
+  PINK600: #C8329F,
+  PINK700: #AA157D,
+  PINK800: #8F0465,
+  PINK900: #71054D,
+  PINK1000: #510736,
+
+  PURPLE100: #F9EEFF,
+  PURPLE200: #F0D3FF,
+  PURPLE300: #E4B6FF,
+  PURPLE400: #D694F9,
+  PURPLE500: #B476DD,
+  PURPLE600: #9153BB,
+  PURPLE700: #7E40AC,
+  PURPLE800: #6A2E99,
+  PURPLE900: #561A87,
+  PURPLE1000: #460A7A,
+
+  RED100: #FFF2F2,
+  RED200: #FFCECE,
+  RED300: #FFADAD,
+  RED400: #FF7A7A,
+  RED500: #F95454,
+  RED600: #F52929,
+  RED700: #EB0909,
+  RED800: #C10C0D,
+  RED900: #A00C0C,
+  RED1000: #720C0C,
+
+  TEAL100: #D3FBF4,
+  TEAL200: #7FEFE0,
+  TEAL300: #47DECF,
+  TEAL400: #19C7C1,
+  TEAL500: #0CB0B0,
+  TEAL600: #008E94,
+  TEAL700: #037780,
+  TEAL800: #035F69,
+  TEAL900: #034752,
+  TEAL1000: #033B46,
+
+  WHITE100P: #FFFFFF,
+  WHITE93P: rgba(255, 255, 255, .93),
+  WHITE80P: rgba(255, 255, 255, .8),
+  WHITE70P: rgba(255, 255, 255, .7),
+  WHITE55P: rgba(255, 255, 255, .55),
+  WHITE40P: rgba(255, 255, 255, .4),
+  WHITE38P: rgba(255, 255, 255, .38),
+  WHITE24P: rgba(255, 255, 255, .24),
+  WHITE15P: rgba(255, 255, 255, .15),
+  WHITE12P: rgba(255, 255, 255, .12),
+  WHITE8P: rgba(255, 255, 255, .08),
+
+  YELLOW100: #FFFCD5,
+  YELLOW200: #FFEF86,
+  YELLOW300: #FFDF41,
+  YELLOW400: #FFC919,
+  YELLOW500: #EEA600,
+  YELLOW600: #CE8200,
+  YELLOW700: #AE6402,
+  YELLOW800: #8E4A06,
+  YELLOW900: #6E3606,
+  YELLOW1000: #4C2609,
+);
+
+$enchantedTheme: (
+  light: (
+    primary: (
+      main: map.get($enchantedPalette, HCLSOFTWAREBLUE07),
+      dark: #0029A9, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      darkInverse: #E6FFFF,
+    ),
+    error: (
+      main: map.get($enchantedPalette, RED800),
+      dark: #890000, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, RED300),
+      darkInverse: #FFDFDF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    warning: (
+      main: map.get($enchantedPalette, ORANGE800),
+      dark: #780500, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, ORANGE300),
+      darkInverse: #FFFA96, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    info: (
+      main: map.get($enchantedPalette, BLUE800),
+      dark: #002B6C, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, BLUE300),
+      darkInverse: #A7FFFF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    success: (
+      main: map.get($enchantedPalette, GREEN800),
+      dark: #003816, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, GREEN300),
+      darkInverse: #7EFFB8, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    background: (
+      default: map.get($enchantedPalette, NG100),
+      paper: map.get($enchantedPalette, WHITE100P),
+      secondary: map.get($enchantedPalette, NG150),
+      tertiary: map.get($enchantedPalette, NG200),
+      dark: map.get($enchantedPalette, NG900),
+      darker: map.get($enchantedPalette, NG1000),
+      overlay: map.get($enchantedPalette, NG1000_80),
+      primary: map.get($enchantedPalette, HCLSOFTWAREBLUE07_12),
+      error: map.get($enchantedPalette, RED100),
+      warning: map.get($enchantedPalette, ORANGE100),
+      info: map.get($enchantedPalette, BLUE100),
+      success: map.get($enchantedPalette, GREEN100),
+      inverse: map.get($enchantedPalette, WHITE24P),
+    ),
+    text: (
+      primary: map.get($enchantedPalette, BLACK87P),
+      secondary: map.get($enchantedPalette, BLACK60P),
+      disabled: map.get($enchantedPalette, BLACK38P),
+      hint: map.get($enchantedPalette, BLACK60P),
+      tertiary1: map.get($enchantedPalette, WHITE93P),
+      tertiary2: map.get($enchantedPalette, WHITE70P),
+    ),
+    border: (
+      primary: map.get($enchantedPalette, BLACK32P),
+      secondary: map.get($enchantedPalette, BLACK20P),
+      tertiary: map.get($enchantedPalette, BLACK43P),
+      inverseSecondary: map.get($enchantedPalette, WHITE40P),
+    ),
+    action: (
+      active: map.get($enchantedPalette, BLACK60P),
+      activeOpacity: map.get($enchantedPalette, BLACK12P),
+      hover: map.get($enchantedPalette, BLACK7P),
+      hoverOpacity: map.get($enchantedPalette, BLACK7P),
+      selected: map.get($enchantedPalette, HCLSOFTWAREBLUE07),
+      selectedOpacity: map.get($enchantedPalette, HCLSOFTWAREBLUE07_8),
+      selectedOpacityHover: map.get($enchantedPalette, HCLSOFTWAREBLUE07_20),
+      disabled: map.get($enchantedPalette, BLACK38P),
+      disabledBackground: map.get($enchantedPalette, NG150),
+      disabledOpacity: map.get($enchantedPalette, BLACK8P),
+      disabledOpacityHover: map.get($enchantedPalette, BLACK15P),
+      focus: map.get($enchantedPalette, HCLSOFTWAREBLUE07),
+      focusOpacity: map.get($enchantedPalette, HCLSOFTWAREBLUE07_12),
+      inverse: map.get($enchantedPalette, WHITE80P),
+      hoverInverse: map.get($enchantedPalette, WHITE15P),
+      selectedInverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      disabledInverse: map.get($enchantedPalette, WHITE38P),
+      focusInverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+    ),
+  ),
+  dark: (
+    primary: (
+      main: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      dark: #E6FFFF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      darkInverse: #E6FFFF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    error: (
+      main: map.get($enchantedPalette, RED300),
+      dark: #FFDFDF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, RED300),
+      darkInverse: #FFDFDF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    warning: (
+      main: map.get($enchantedPalette, ORANGE300),
+      dark: #FFFA96, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, ORANGE300),
+      darkInverse: #FFFA96, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    info: (
+      main: map.get($enchantedPalette, BLUE300),
+      dark: #A7FFFF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, BLUE300),
+      darkInverse: #A7FFFF, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    success: (
+      main: map.get($enchantedPalette, GREEN300),
+      dark: #7EFFB8, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+      inverse: map.get($enchantedPalette, GREEN300),
+      darkInverse: #7EFFB8, //To-do: Follow up with UIUX correct token https://jira.cwp.pnp-hcl.com/browse/DXQ-41204
+    ),
+    background: (
+      default: map.get($enchantedPalette, NG1000),
+      paper: map.get($enchantedPalette, NG900),
+      secondary: map.get($enchantedPalette, NG800),
+      tertiary: map.get($enchantedPalette, NG700),
+      dark: map.get($enchantedPalette, NG900),
+      darker: map.get($enchantedPalette, NG1000),
+      overlay: map.get($enchantedPalette, NG1000_80),
+      primary: map.get($enchantedPalette, HCLSOFTWAREBLUE09_12),
+      error: map.get($enchantedPalette, NG1000),
+      warning: map.get($enchantedPalette, NG1000),
+      info: map.get($enchantedPalette, NG1000),
+      success: map.get($enchantedPalette, NG1000),
+      inverse: map.get($enchantedPalette, BLACK20P),
+    ),
+    text: (
+      primary: map.get($enchantedPalette, BLACK87P),
+      secondary: map.get($enchantedPalette, BLACK60P),
+      disabled: map.get($enchantedPalette, BLACK38P),
+      hint: map.get($enchantedPalette, BLACK60P),
+      tertiary1: map.get($enchantedPalette, WHITE93P),
+      tertiary2: map.get($enchantedPalette, WHITE70P),
+    ),
+    border: (
+      primary: map.get($enchantedPalette, WHITE55P),
+      secondary: map.get($enchantedPalette, WHITE40P),
+      tertiary: map.get($enchantedPalette, WHITE55P),
+      inverseSecondary: map.get($enchantedPalette, WHITE40P),
+    ),
+    action: (
+      active: map.get($enchantedPalette, WHITE80P),
+      activeOpacity: map.get($enchantedPalette, WHITE12P),
+      hover: map.get($enchantedPalette, WHITE15P),
+      hoverOpacity: map.get($enchantedPalette, WHITE15P),
+      selected: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      selectedOpacity: map.get($enchantedPalette, HCLSOFTWAREBLUE09_8),
+      selectedOpacityHover: map.get($enchantedPalette, HCLSOFTWAREBLUE09_20),
+      disabled: map.get($enchantedPalette, WHITE38P),
+      disabledBackground: map.get($enchantedPalette, NG800),
+      disabledOpacity: map.get($enchantedPalette, WHITE8P),
+      disabledOpacityHover: map.get($enchantedPalette, WHITE24P),
+      focus: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      focusOpacity: map.get($enchantedPalette, HCLSOFTWAREBLUE09_12),
+      inverse: map.get($enchantedPalette, WHITE80P),
+      hoverInverse: map.get($enchantedPalette, WHITE15P),
+      selectedInverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+      disabledInverse: map.get($enchantedPalette, WHITE38P),
+      focusInverse: map.get($enchantedPalette, HCLSOFTWAREBLUE09),
+    ),
+  )
+);
+
+// This implementation is only for you can visualize the theme by importing it in a JS/TS file
+$delimiter: 'ZZZ';
+
+:export {
+  @each $key, $value in $enchantedPalette {
+      palette#{$key}: $value;
+  }
+  @each $mode, $types in $enchantedTheme {
+    @each $type, $values in $types {
+      @each $key, $value in $values {
+        theme#{$delimiter}#{$mode}#{$delimiter}#{$type}#{$delimiter}#{$key}: #{$value};
+      }
+    }
+  }
+}

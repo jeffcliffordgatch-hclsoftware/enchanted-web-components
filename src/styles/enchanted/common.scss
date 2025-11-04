@@ -1,0 +1,180 @@
+/*
+ ********************************************************************
+ * Licensed Materials - Property of HCL                             *
+ *                                                                  *
+ * Copyright HCL Technologies Ltd. 2024, 2025. All Rights Reserved. *
+ *                                                                  *
+ * Note to US Government Users Restricted Rights:                   *
+ *                                                                  *
+ * Use, duplication or disclosure restricted by GSA ADP Schedule    *
+ ********************************************************************
+ */
+@use "sass:map";
+@use 'common/palette.scss';
+@use 'common/typography.scss';
+@use "common/themeMap.module";
+
+/* Component-Specific Styles Shared by Different ACs or FCCs */
+@mixin button {
+  @include typography.font-default;
+  background-color: map.get(themeMap.$enchantedPalette, HCLSOFTWAREBLUE06);
+  border: none;
+  color: map.get(themeMap.$enchantedPalette, WHITE100P);
+  display: flex;
+  flex: 0 1 auto;
+  font-size: 12px;
+  padding: 6px 12px;
+  font-weight: 600;
+  align-items: center;
+  display: inline-flex;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@mixin button-disabled {
+  @include button;
+  background-color: palette.clr(light, action, disabledBackground);
+  color: palette.clr(light, text, disabled) !important;
+  --icon-theme-color: clr(light, text, disabled) !important;
+  cursor: not-allowed;
+}
+
+@mixin button-icon-primary {
+  height: 16px;
+  width: 16px;
+  color: map.get(themeMap.$enchantedPalette, WHITE100P);
+}
+
+@mixin switch-slider-common {
+  position: absolute;
+  cursor: pointer;
+  width: 32px;
+  height: 16px;
+  border-radius: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin switch-slider-thumb {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: map.get(themeMap.$enchantedPalette, WHITE100P);
+  border-radius: 50%;
+}
+
+@mixin switch-label-common {
+  position: relative;
+  display: block;
+  width: 38px;
+  height: 22px;
+  border-radius: 30px;
+}
+
+@mixin pagination-index {
+  @include typography.font-default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+  color: palette.clr(light, text, primary);
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+@mixin toggle-button-selected {
+  background-color: map.get(themeMap.$enchantedPalette, HCLSOFTWAREBLUE06);
+  border: none;
+  color: map.get(themeMap.$enchantedPalette, WHITE100P);
+  height: 24px;
+  padding: 4px;
+}
+
+@mixin toggle-button {
+  background-color: map.get(themeMap.$enchantedPalette, BLACK8P);
+  border: none;
+  color: palette.clr(light, text, secondary);
+  height: 24px;
+  padding: 4px;
+}
+
+@mixin toggle-button-icon {
+  height: 16px;
+  width: 16px;
+}
+@mixin dx-button-focused{
+  border-radius: 4px !important;
+  outline: map.get(themeMap.$enchantedPalette, HCLSOFTWAREBLUE06) 1px solid;
+  outline-offset: 2px;
+}
+
+@mixin breadcrumbs-focus {
+  outline: 3px solid map.get(themeMap.$enchantedPalette, HCLSOFTWAREBLUE06);
+  padding: 0px;
+  border-radius: 2px;
+  
+  &:focus-visible {
+      outline-offset: 0;
+  }
+}
+
+@mixin reset-margin-padding {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin dx-dialog-footer {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
+@mixin container {
+  opacity: 1;
+  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: 0px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+@mixin paper {
+  display: flex;
+  flex-direction: column;
+  background-color: palette.clr(light, background, paper);
+  color: palette.clr(light, text, primary);
+  box-shadow: #{map.get(themeMap.$enchantedPalette, shadows24)};
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  margin: 32px;
+}
+
+@mixin pagination {
+  border-top: 1px solid palette.clr(light, border, secondary);
+  width: 100%;
+  position: absolute;
+  bottom: 45px;
+  background-color: palette.clr(light, background, paper);
+}
+
+@mixin dialog-content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 0px 12px;
+  border-top: 1px solid palette.clr(light, border, secondary);
+}
