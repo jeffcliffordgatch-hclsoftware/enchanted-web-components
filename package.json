@@ -29,8 +29,8 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf ./dist",
+    "prepare": "npm run compile-enchanted-css && cp enchanted.css ./dist/",
     "build": "tsc",
-    "build-complete": "cp -r enchanted.css ./dist/ && cp -r src/styles ./dist/ && cp -r src/static/assets/*.svg ./dist/static/assets && cp -r src/static/assets/*.jpg ./dist/static/assets && cp -r src/static/assets/SearchIconsv2 ./dist/static/assets",
     "lint": "eslint src",
     "lint-fix": "eslint src --fix",
     "test-unit": "wdio run ./wdio.unit.conf.ts",
@@ -41,7 +41,6 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@enchanted-prod/logger": "^2.0.2",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.18.0",
     "@lit/context": "^1.1.2",
