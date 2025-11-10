@@ -14,10 +14,6 @@
  * ======================================================================== */
 
 import { tmpFolderCleanup } from './wdio-util';
-import path from 'path';
-import url from 'url';
-
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 export const config = {
   // ====================
