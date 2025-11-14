@@ -19,7 +19,6 @@ import { localized } from '@lit/localize';
 
 // Component imports
 import { DxAcBaseElement } from './dx-ac-base-element';
-import './dx-svg-icon';
 
 // Helper imports
 import { ALERT, ALERT_SEVERITY, ALERT_VARIANTS } from '../../types/cssClassEnums';
@@ -83,13 +82,13 @@ export class DxAlert extends DxAcBaseElement {
   private getAlertIcon(): TemplateResult | typeof nothing {
     switch (this.severity) {
       case ALERT_SEVERITY.ALERT_INFO:
-        return html`<icon-information size="16"></icon-information>`;
+        return html`<icon-information size="16" part="${this.getAlertSVG()}"></icon-information>`;
       case ALERT_SEVERITY.ALERT_ERROR:
-        return html`<icon-warning size="16"></icon-warning>`;
+        return html`<icon-warning size="16" part="${this.getAlertSVG()}"></icon-warning>`;
       case ALERT_SEVERITY.ALERT_WARNING:
-        return html`<icon-warning-alt size="16"></icon-warning-alt>`;
+        return html`<icon-warning-alt size="16" part="${this.getAlertSVG()}"></icon-warning-alt>`;
       case ALERT_SEVERITY.ALERT_SUCCESS:
-        return html`<icon-checkmark-outline size="16"></icon-checkmark-outline>`;
+        return html`<icon-checkmark-outline size="16" part="${this.getAlertSVG()}"></icon-checkmark-outline>`;
       default:
         return nothing;
     }
@@ -113,7 +112,7 @@ export class DxAlert extends DxAcBaseElement {
   render() {
     return html`
       <div part="${ALERT.ALERT_DIV_ROOT} ${this.getAlertPart()}" style="width:${this.width}px">
-          <dx-svg-icon .icon=${this.getAlertIcon()} ?useCurrentColor=${false} part="${this.getAlertSVG()}"></dx-svg-icon>
+          ${this.getAlertIcon()}
           <span>${this.message}</span>
       </div>`;
   }

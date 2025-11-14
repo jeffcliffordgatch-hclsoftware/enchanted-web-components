@@ -82,22 +82,22 @@
   }
 
   &::part(alert-svg-success) {
-    fill: map.get(themeMap.$enchantedPalette, GREEN800);
+    color: map.get(themeMap.$enchantedPalette, GREEN800);
     margin-right: 8px;
   }
 
   &::part(alert-svg-error) {
-    fill: map.get(themeMap.$enchantedPalette, RED800);
+    color: map.get(themeMap.$enchantedPalette, RED800);
     margin-right: 8px;
   }
 
   &::part(alert-svg-warning) {
-    fill: map.get(themeMap.$enchantedPalette, ORANGE800);
+    color: map.get(themeMap.$enchantedPalette, ORANGE800);
     margin-right: 8px;
   }
 
   &::part(alert-svg-info) {
-    fill: map.get(themeMap.$enchantedPalette, BLUE800);
+    color: map.get(themeMap.$enchantedPalette, BLUE800);
     margin-right: 8px;
   }
 }

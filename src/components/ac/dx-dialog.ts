@@ -56,7 +56,9 @@ export class DxDialog extends DxAcBaseElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    this.dialogTitle = this.getMessage('generic.label');
+    if (this.dialogTitle === '') {
+      this.dialogTitle = this.getMessage('generic.label');
+    }
   }
 
   disconnectedCallback(): void {
