@@ -8,6 +8,7 @@
 
 ### Fixed
 - Improved accessibility of `dx-breadcrumbs` component for screen readers
+- Improved accessibility of `dx-dialog` component for screen readers
 
 ### Changed
 - Updated `dx-data-grid-generic` component with improved ARIA attributes:
