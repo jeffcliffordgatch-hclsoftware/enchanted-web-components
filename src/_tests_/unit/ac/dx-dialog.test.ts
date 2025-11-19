@@ -36,7 +36,7 @@ describe('DxDialog component testing', () => {
   });
 
   afterEach(() => {
-    if (document.body.firstElementChild) {
+    while (document.body.firstElementChild) {
       document.body.removeChild(document.body.firstElementChild);
     }
   });
@@ -221,5 +221,36 @@ describe('DxDialog component testing', () => {
     await expect(component).toBeDisplayed();
     let dialogRootChat = await component.$(`>>>[part="${DIALOG_PARTS.DIALOG_ROOT_CHAT}"]`).getElement();
     expect(dialogRootChat).toBeDisplayed();
+  });
+
+  it('DxDialog - should focus on the dialog element when focusDialog is called', async () => {
+    render(
+      html`
+        <dx-dialog open .localization=${dxLocalization}>
+        </dx-dialog>
+      `,
+      document.body
+    );
+    // Create a dummy, focusable element to "steal" focus
+    const dummyInput = document.createElement('input');
+    document.body.appendChild(dummyInput);
+
+    const component = await document.querySelector('dx-dialog');
+    await component?.updateComplete;
+
+    const dialogElement = component?.shadowRoot?.querySelector('[role="dialog"]');
+    let activeElement = component?.shadowRoot?.activeElement;
+
+    await expect(activeElement).toEqual(dialogElement);
+
+    dummyInput.focus();
+    activeElement = component?.shadowRoot?.activeElement;
+    await expect(activeElement).toBeNull();
+
+    component?.focusDialog();
+    activeElement = component?.shadowRoot?.activeElement;
+    await expect(activeElement).toEqual(dialogElement);
+
+    document.body.removeChild(dummyInput);
   });
 });

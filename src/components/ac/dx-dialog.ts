@@ -68,7 +68,7 @@ export class DxDialog extends DxAcBaseElement {
   async updated(changedProperties: Map<string, unknown>) {
     if (changedProperties.has('open') && this.open) {
       await this.updateComplete;
-      this._dialogElement?.focus();
+      this.focusDialog();
     }
   }
 
@@ -166,6 +166,10 @@ export class DxDialog extends DxAcBaseElement {
       return DIALOG_PARTS.CHAT_ACTION;
     }
     return DIALOG_PARTS.ACTION;
+  }
+
+  public focusDialog() {
+    this._dialogElement?.focus();
   }
 
   render() {
