@@ -56,9 +56,9 @@ const meta: Meta = {
       defaultValue: testAvatarImageUrl,
     },
     iconUrl: {
-      control: 'text',
+      control: 'object',
       description: 'Icon URL',
-      defaultValue: '',
+      defaultValue: html`<icon-link></icon-link>`,
     },
     avatarText: {
       control: 'text',
@@ -66,9 +66,9 @@ const meta: Meta = {
       defaultValue: 'AB',
     },
     iconTemplate: {
-      control: 'text',
+      control: 'object',
       description: 'Icon template (SVG string)',
-      defaultValue: '',
+      defaultValue: html`<icon-template></icon-template>`,
     },
   },
   args: {

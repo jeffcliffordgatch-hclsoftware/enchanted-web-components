@@ -22,9 +22,6 @@ import { DxAcBaseElement } from './dx-ac-base-element';
 // Helper imports
 import { AVATAR_PARTS, AVATAR_VARIANT, AVATAR_TYPE, AVATAR_COLOR } from '../../types/cssClassEnums';
 
-// Icon imports
-import '@hcl-software/enchanted-icons-web-component/dist/carbon/es/arrow--up';
-
 @customElement('dx-avatar')
 export class DxAvatar extends DxAcBaseElement {
   @property()
@@ -73,27 +70,27 @@ export class DxAvatar extends DxAcBaseElement {
       case AVATAR_VARIANT.AVATAR_ICON:
         switch (this.type) {
           case AVATAR_TYPE.AVATAR_ROUNDED:
-            return this.renderAvatar(this.iconUrl || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_ICON_ROUNDED);
+            return this.renderAvatar(this.iconUrl, AVATAR_PARTS.AVATAR_ICON_ROUNDED);
           case AVATAR_TYPE.AVATAR_CIRCULAR:
-            return this.renderAvatar(this.iconUrl || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_ICON_CIRCULAR);
+            return this.renderAvatar(this.iconUrl, AVATAR_PARTS.AVATAR_ICON_CIRCULAR);
           default:
             return nothing;
         }
       case AVATAR_VARIANT.AVATAR_ICON_TEMPLATE:
         switch (this.type) {
           case AVATAR_TYPE.AVATAR_ROUNDED:
-            return this.renderAvatar(this.iconTemplate || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_ICON_TEMPLATE_ROUNDED);
+            return this.renderAvatar(this.iconTemplate, AVATAR_PARTS.AVATAR_ICON_TEMPLATE_ROUNDED);
           case AVATAR_TYPE.AVATAR_CIRCULAR:
-            return this.renderAvatar(this.iconTemplate || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_ICON_TEMPLATE_CIRCULAR);
+            return this.renderAvatar(this.iconTemplate, AVATAR_PARTS.AVATAR_ICON_TEMPLATE_CIRCULAR);
           default:
             return nothing;
         } 
       case AVATAR_VARIANT.AVATAR_IMG:
         switch (this.type) {
           case AVATAR_TYPE.AVATAR_ROUNDED:
-            return this.renderAvatar(this.imgUrl || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_IMAGE_ROUNDED);
+            return this.renderAvatar(this.imgUrl, AVATAR_PARTS.AVATAR_IMAGE_ROUNDED);
           case AVATAR_TYPE.AVATAR_CIRCULAR:
-            return this.renderAvatar(this.imgUrl || html`<icon-arrow-up size="16"></icon-arrow-up>`, AVATAR_PARTS.AVATAR_IMAGE_CIRCULAR);
+            return this.renderAvatar(this.imgUrl, AVATAR_PARTS.AVATAR_IMAGE_CIRCULAR);
           default:
             return nothing;
         }  
