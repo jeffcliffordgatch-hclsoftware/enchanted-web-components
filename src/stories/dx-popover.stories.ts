@@ -16,6 +16,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
 import '../components/ac/dx-popover';
+import '../components/ac/dx-button';
 import { DxPopoverArrowPosition } from '../types/dx-popover';
 
 const meta: Meta = {
@@ -73,6 +74,11 @@ const meta: Meta = {
       control: 'boolean',
       description: 'Disables hover-based show/hide behavior',
     },
+
+    buttontext: {
+      control: 'text',
+      description: 'Button text',
+    },
   },
 
   args: {
@@ -87,6 +93,7 @@ const meta: Meta = {
     withpadding: false,
     autoShowOnLoad: false,
     disableHover: false,
+    buttontext: 'Hover or Click Me',
   },
 
   parameters: {
@@ -113,6 +120,7 @@ type Story = StoryObj<{
   withpadding: boolean;
   autoShowOnLoad: boolean;
   disableHover: boolean;
+  buttontext: string;
 }>;
 
 export const DxPopoverStory: Story = {
@@ -134,9 +142,7 @@ export const DxPopoverStory: Story = {
       ?disableHover=${args.disableHover}
       style="position: absolute; margin-left: 10%;"
     >
-      <button slot="target" style="position: relative;">
-        Hover or Click Me
-      </button>
+      <dx-button slot="target" buttontext="${args.buttontext}"></dx-button>
     </dx-popover>
   `;
   }
