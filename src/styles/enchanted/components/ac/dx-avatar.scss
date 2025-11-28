@@ -37,7 +37,8 @@
   &::part(avatar-div-circular) {
     height: 24px;
     width: 24px;
-    outline: 1px solid palette.$avatar-border-color;
+    box-sizing: border-box;
+    border: 1px solid palette.clr(light, border, secondary);
     border-radius: 50%;
     display: flex;
     -webkit-box-pack: center;
@@ -49,15 +50,12 @@
   &::part(avatar-span-rounded) {
     @include typography.caption;
     border-radius: 2px;
-    padding: 5px;
-    border-radius: 2px;
     color: var(--icon-theme-color);
   }
 
   &::part(avatar-span-circular) {
     @include typography.caption;
     border-radius: 50%;
-    padding: 5px;
     color: var(--icon-theme-color);
   }
 
@@ -106,8 +104,8 @@
   }
 
   &::part(avatar-default-color) {
-    --icon-theme-color: #{map.get(themeMap.$enchantedPalette, GRAY800)};
-    background-color: map.get(themeMap.$enchantedPalette, GRAY100);
+    --icon-theme-color: #{map.get(themeMap.$enchantedPalette, NG800)};
+    background-color: map.get(themeMap.$enchantedPalette, NG100);
   }
 
   &::part(avatar-red) {
