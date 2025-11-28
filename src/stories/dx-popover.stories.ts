@@ -131,7 +131,7 @@ export const DxPopoverStory: Story = {
       arrow=${args.arrow}
       ?withpadding=${args.withpadding}
       ?disableHover=${args.disableHover}
-      style="position: absolute; margin: 20%;"
+      style="position: absolute; top: 50%; left: 45%;"
     >
       <dx-button slot="target" buttontext="${args.buttontext}"></dx-button>
     </dx-popover>
