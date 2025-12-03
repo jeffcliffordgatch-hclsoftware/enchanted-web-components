@@ -135,7 +135,7 @@ export const DxAccordion: Story = {
       </dx-accordion>
     `;
   },
-  name: 'DxAccordion',
+  name: 'Default',
   parameters: {
     docs: {
       description: {

@@ -130,6 +130,7 @@ export const DxAvatar: Story = {
       ></dx-avatar>
     `;
   },
+  name: 'Default',
   parameters: {
     docs: {
       description: {

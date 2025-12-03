@@ -83,7 +83,7 @@ export const DxAlert: Story = {
       ></dx-alert>
     `;
   },
-  name: 'DxAlert',
+  name: 'Default',
   parameters: {
     docs: {
       description: {
@@ -109,7 +109,6 @@ export const AllStates: Story = {
       <dx-alert message="Error alert (outlined)" severity="${ALERT_SEVERITY.ALERT_ERROR}" variant="${ALERT_VARIANTS.ALERT_OUTLINED}"></dx-alert>
     </div>
   `;},
-  name: 'All States (Severity × Variant)',
   parameters: {
     docs: {
       description: {
