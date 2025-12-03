@@ -8,7 +8,7 @@
 ### Fixed
 
 ### Changed
-- Refactored menu placement logic using a switch statment for clarity and maintainability.
+- Refactored menu placement logic using a switch statement for clarity and maintainability.
 
 ### Breaking changes
 
