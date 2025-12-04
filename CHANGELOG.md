@@ -3,14 +3,20 @@
 ## Unreleased
 
 ### Added
-- Added new `placement` and `size` property for `dx-menu` component.
 
 ### Fixed
 
 ### Changed
-- Refactored menu placement logic using a switch statement for clarity and maintainability.
 
 ### Breaking changes
+
+## 1.4.0
+
+### Added
+- Added new `placement` and `size` property for `dx-menu` component.
+
+### Changed
+- Refactored menu placement logic using a switch statement for clarity and maintainability.
 
 ## 1.3.0
 
