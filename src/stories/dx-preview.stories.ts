@@ -42,8 +42,10 @@ export interface PreviewItem {
  * @property component - Custom component or template
  * @property isPreviousButtonDisabled - Disables the previous button
  * @property isNextButtonDisabled - Disables the next button
+ * @property renditionLabel - Label for the rendition selector dropdown
  * @property selectButtonTitle - Title for select button
  * @property currentItemIndex - Current item index being displayed
+ * @property selectedRenditionId - ID of the currently selected rendition
  * @property skipSourceValidation - Skip source URL validation
  */
 export interface DxPreviewProps {
@@ -56,7 +58,7 @@ export interface DxPreviewProps {
   renditionLabel?: string;
   selectButtonTitle?: string;
   currentItemIndex?: number;
-  selectedRenditionId?: string;
+  selectedRenditionId?: string | null;
   skipSourceValidation?: boolean;
 }
 
@@ -115,6 +117,11 @@ const meta: Meta<DxPreviewProps> = {
       description: 'Disables the next navigation button. Automatically set to true when viewing the last item. Can be manually controlled.',
       table: { category: 'State', type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
+    renditionLabel: {
+      control: { type: 'text' },
+      description: 'Label text for the rendition selector dropdown. Appears next to the rendition selection control when multiple renditions are available.',
+      table: { category: 'Content', type: { summary: 'string' }, defaultValue: { summary: '' } },
+    },
     selectButtonTitle: {
       control: { type: 'text' },
       description: 'Title text for the select button in the toolbar. Used when preview is in selection mode to choose items.',
@@ -124,6 +131,11 @@ const meta: Meta<DxPreviewProps> = {
       control: { type: 'number', min: 0, max: PREVIEW_ITEMS.length },
       description: 'Zero-based index of the currently displayed item. Updates as users navigate through items. Used to track position in the items array.',
       table: { category: 'State', type: { summary: 'number' }, defaultValue: { summary: '0' } },
+    },
+    selectedRenditionId: {
+      control: { type: 'text' },
+      description: 'ID of the currently selected rendition. Used to control which rendition is displayed when an item has multiple renditions available.',
+      table: { category: 'State', type: { summary: 'string' }, defaultValue: { summary: 'null' } },
     },
     skipSourceValidation: {
       control: { type: 'boolean' },
@@ -138,8 +150,10 @@ const meta: Meta<DxPreviewProps> = {
     component: '',
     isPreviousButtonDisabled: false,
     isNextButtonDisabled: false,
+    renditionLabel: 'Rendition',
     selectButtonTitle: '',
     currentItemIndex: 0,
+    selectedRenditionId: null,
     skipSourceValidation: false,
   },
 };
