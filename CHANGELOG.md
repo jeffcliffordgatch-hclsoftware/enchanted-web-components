@@ -8,6 +8,7 @@
 
 ### Fixed
 - Fix the `XS` size of the `dx-dialog` component
+- Fix the `disabled` state for the `dx-header` component
 
 ### Changed
 - Check and rework all storybook stories
@@ -22,6 +23,7 @@
 - Remove unused `error` property from the `dx-multiple-select-chip` component
 - Remove unused `color` property from the `dx-header` component
 - Change `dx-data-grid-generic` interface propertie types (isLoading, hasMiddlewareError, hasContentSourceAvailable, checkboxSelection)
+- Remove the `ignoreDisable` property from the `dx-input-textfield` component
 
 ## 1.4.0
 
