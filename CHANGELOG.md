@@ -23,6 +23,7 @@
 - Remove unused `error` property from the `dx-multiple-select-chip` component
 - Remove unused `color` property from the `dx-header` component
 - Change `dx-data-grid-generic` interface propertie types (isLoading, hasMiddlewareError, hasContentSourceAvailable, checkboxSelection)
+- Remove `dx-search-center-layout` component
 - Remove the `ignoreDisable` property from the `dx-input-textfield` component
 - Remove useless `open` property from `dx-menu` component
 

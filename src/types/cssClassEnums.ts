@@ -251,13 +251,6 @@ export enum MENU_ITEM_PARTS {
   TEXT = 'text',
 }
 
-export enum SEARCH_CENTER_LAYOUT_PARTS {
-  SEARCH_OUTPUT_CONTAINER = 'search-output-container',
-  SEARCH_OUTPUT_CONTAINER_NO_TAGS = 'search-output-container-no-tags',
-  TAG_CLOUD_CONTAINER = 'tag-cloud-container',
-  TAG_CLOUD_CONTAINER_HIDDEN = 'tag-cloud-container-hidden',
-}
-
 export enum INPUT_TEXTFIELD_PARTS {
   INPUT = 'input',
   INPUT_DISABLED = 'input-disabled',
