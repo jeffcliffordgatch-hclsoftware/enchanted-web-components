@@ -96,13 +96,13 @@ export class DxCircularProgress extends DxAcBaseElement {
    * Color of the track (background circle)
    * @default 'rgba(0, 0, 0, 0.12)'
    */
-  @property({ type: String }) trackcolor = 'rgba(0, 0, 0, 0.12)';
+  @property({ type: String }) trackcolor = '#D6D6D6'; // equivalent to $NG200 in ac.scss
 
   /**
    * Color of the progress indicator
    * @default '#1976d2'
    */
-  @property({ type: String }) progresscolor = '#1976d2';
+  @property({ type: String }) progresscolor = '#0550DC'; // equivalent to $HCLSOFTWAREBLUE06 in ac.scss
 
   /**
    * Disables the shrink animation for performance in high CPU load scenarios
