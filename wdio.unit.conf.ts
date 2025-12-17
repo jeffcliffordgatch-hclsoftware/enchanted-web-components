@@ -26,9 +26,9 @@ export const config = {
     coverage: {
       enabled: true,
       statements: 82,
-      branches: 68,
-      functions: 78,
-      lines: 80,
+      branches: 69,
+      functions: 79,
+      lines: 81,
       exclude: [
         'src/_tests_/**',
       ]

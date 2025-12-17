@@ -37,13 +37,13 @@ export class EnchantedSnackbar extends EnchantedAcBaseElement {
 
     private _renderPreElement() {
       if (SNACKBAR_TYPE.SNACKBAR_PROGRESS == this.type) {
-        // valuecolor is HCLSOFTWAREBLUE09, trailcolor is the hex equivalent of Enchanted Palette WHITE15P
+        // progresscolor is HCLSOFTWAREBLUE09, trackcolor is the hex equivalent of Enchanted Palette WHITE15P
         return html`
           <div part="${SNACKBAR_PARTS.SNACKBAR_PROGRESS}">
             <enchanted-circular-progress
               size="36" strokewidth="2"
-              valuecolor="#B3D9F8"
-              trailcolor="#ffffff26"
+              progresscolor="#B3D9F8"
+              trackcolor="#ffffff26"
             />
           </div>
         `;
